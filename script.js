@@ -12,6 +12,7 @@ function makeAPICall(){
     
       fetch(url)
         .then(function(response) {
+            console.log(response)
             return response.json()
         }).then(function(response) {
             console.log(response)
@@ -22,12 +23,12 @@ function makeAPICall(){
 
 function displayResults(titles,description, links) {
     const newResponse = titles.map(function(item, index) {
-        console.log(description);
+       
         // return "<li>" + "<a href="+ links[index]+">" +item+ "</li>"
-        return `<li><a href=${links[index]}>${item}</a><br>${description}</li>`;
+        return `<li><a href=${links[index]}>${item}</a><br>${description[index]}</li>`;
     });
     const joinedResponse = newResponse.join("\n");
-    console.log(joinedResponse);
+    // console.log(joinedResponse);
 
     document.getElementById('results').innerHTML = joinedResponse;
 }
